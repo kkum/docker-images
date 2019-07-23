@@ -1,0 +1,19 @@
+{
+    "tags": [
+        {
+            "tag": "sitecore-xp-sxa-1.8.0-sqldev:9.1.0-windowsservercore-ltsc2019",
+            "build-options": [
+                "--build-arg BASE_IMAGE=sitecore-xp-pse-5.0-sqldev:9.1.0-windowsservercore-ltsc2019"
+            ]
+        },
+        {
+            "tag": "sitecore-xp-sxa-1.8.0-sqldev:9.1.0-windowsservercore-1903",
+            "build-options": [
+                "--build-arg BASE_IMAGE=sitecore-xp-pse-5.0-sqldev:9.1.0-windowsservercore-1903"
+            ]
+        }
+    ],
+    "sources": [
+        "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.1.scwdp.zip"
+    ]
+}

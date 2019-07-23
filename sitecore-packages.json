@@ -171,9 +171,33 @@
     "description": "Sitecore Experience Accelerator 1.7 Update 1",
     "url": "https://dev.sitecore.net/~/media/1FF242BE683E4DE989925F74B78978FC.ashx"
   },
+  "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.0 CD.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator CD WDP for 9.0",
+    "url": "https://dev.sitecore.net/~/media/3018E2BFF9704067861B1B5BBB389220.ashx"
+  },
+  "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.0 CD.zip": {
+    "description": "Sitecore Experience Accelerator CD for 9.0",
+    "url": "https://dev.sitecore.net/~/media/145A2B3C057F4739BE72A47F1A49D043.ashx"
+  },
+  "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.0.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator WDP for 9.0",
+    "url": "https://dev.sitecore.net/~/media/47027C8691BF4B56AC2C3EB37BA59DBF.ashx"
+  },
   "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.0.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Initial Release",
     "url": "https://dev.sitecore.net/~/media/2E9624E019FA46B691C9E3851E4A9C2C.ashx"
+  },
+  "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.1 CD.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator CD WDP for 9.1",
+    "url": "https://dev.sitecore.net/~/media/CCCF4483818648DCB9DB55DC9436BBFC.ashx"
+  },
+  "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.1 CD.zip": {
+    "description": "Sitecore Experience Accelerator CD for 9.1",
+    "url": "https://dev.sitecore.net/~/media/34C07C1EEF8B49CAB10BA1FAB9813BCC.ashx"
+  },
+  "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.1.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator WDP for 9.1",
+    "url": "https://dev.sitecore.net/~/media/D494E255F40A49F097DE86C001495FFD.ashx"
   },
   "Sitecore Experience Accelerator 1.8 rev. 181112 for 9.1.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Initial Release",
@@ -187,10 +211,14 @@
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
     "url": "https://dev.sitecore.net/~/media/4427D574D1AA4DDFBEBEF66E4F36C782.ashx"
   },
+  "Sitecore Experience Accelerator 1.8.1 rev. 190319 for 9.0.zip": {
+    "description": "Sitecore Experience Accelerator 1.8 Update-1",
+    "url": "https://dev.sitecore.net/~/media/8BD9C5190DA04730A28EDB9FDC92EE06.ashx"
+  },
   "Sitecore Experience Accelerator XM 1.8.1 rev. 190319 for 9.1.1.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
     "url": "https://dev.sitecore.net/~/media/F8CFFFD23CD54178B5749B0ECACB5813.ashx"
-  }, 
+  },
   "Sitecore Experience Accelerator XM 1.8.1 rev. 190319 for 9.1.1 CD.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
     "url": "https://dev.sitecore.net/~/media/768039F8BCB24FB5A78AA99AD4391A20.ashx"
@@ -215,6 +243,14 @@
     "description": "Sitecore Experience Accelerator 1.9",
     "url": "https://dev.sitecore.net/~/media/1A7A3C021C7649C98DA83EF50E624C8E.ashx"
   },
+  "Sitecore Experience Accelerator XM 1.8 rev. 181112 for 9.1 CD.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator XM WDP for 9.1 CD",
+    "url": "https://dev.sitecore.net/~/media/7924C79079E14B0BA17C1B5368733676.ashx"
+  },
+  "Sitecore Experience Accelerator XM 1.8 rev. 181112 for 9.1.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator XM WDP for 9.1 CM",
+    "url": "https://dev.sitecore.net/~/media/FA8A4DFAD3CA4DD3ACD0B624A6484281.ashx"
+  },
   "Sitecore Experience Accelerator XM 1.9.0 rev. 190528 for 9.2 CD.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.9",
     "url": "https://dev.sitecore.net/~/media/CA4C08B158E64CADAE6ACF20A2BD1331.ashx"
@@ -222,6 +258,42 @@
   "Sitecore Experience Accelerator XM 1.9.0 rev. 190528 for 9.2.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.9",
     "url": "https://dev.sitecore.net/~/media/A610D5EBE63545C1A7337CA943CB1579.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.0 11.0.0 rev. 181031 CD.scwdp.zip": {
+    "description": "Sitecore JavaScript Services Server CD WDP for Sitecore 9.0",
+    "url": "https://dev.sitecore.net/~/media/85A48EB0E6C9484885C8CAC6B3C9D132.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.0 11.0.0 rev. 181031.scwdp.zip": {
+    "description": "Sitecore JavaScript Services Server WDP for Sitecore 9.0",
+    "url": "https://dev.sitecore.net/~/media/FEA777EBE8FB4E18B1691A4EED261566.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.0 11.0.0 rev. 181031.zip": {
+    "description": "Sitecore JavaScript Services Server for Sitecore 9.0",
+    "url": "https://dev.sitecore.net/~/media/E82E242366EC453DBCE549CA48556ACC.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.1 XM 11.0.0 rev. 181031.zip": {
+    "description": "Sitecore JavaScript Services Server for Sitecore 9.1 XM",
+    "url": "https://dev.sitecore.net/~/media/B401567AE49D48BA9D6DBDF33E6DB422.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.1 XM 11.0.0 rev. 181113 CD.scwdp.zip": {
+    "description": "Sitecore JavaScript Services Server CD WDP for Sitecore 9.1 XM",
+    "url": "https://dev.sitecore.net/~/media/792F2A59F55548B0B34DFC6D03C48AF6.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.1 XM 11.0.0 rev. 181113.scwdp.zip": {
+    "description": "Sitecore JavaScript Services Server WDP for Sitecore 9.1 XM",
+    "url": "https://dev.sitecore.net/~/media/DD6D5F5B216D4674A7D06DD854821AC9.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.1 XP 11.0.0 rev. 181031.zip": {
+    "description": "Sitecore JavaScript Services Server for Sitecore 9.1 XP",
+    "url": "https://dev.sitecore.net/~/media/28F918CC225547EF9605C9ECD574D007.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.1 XP 11.0.0 rev. 181113 CD.scwdp.zip": {
+    "description": "Sitecore JavaScript Services Server CD WDP for Sitecore 9.1 XP",
+    "url": "https://dev.sitecore.net/~/media/2C0271D4DFE94950BA777935DFC40240.ashx"
+  },
+  "Sitecore JavaScript Services Server for Sitecore 9.1 XP 11.0.0 rev. 181113.scwdp.zip": {
+    "description": "Sitecore JavaScript Services Server WDP for Sitecore 9.1 XP",
+    "url": "https://dev.sitecore.net/~/media/E899E132CB8E4FAEA5305EF0D19A59FC.ashx"
   },
   "Sitecore JavaScript Services Server for Sitecore 9.1.1 XM 11.0.1 rev. 190318 CD.scwdp.zip": {
     "description": "Sitecore JavaScript Services Server for Sitecore 9.1.1 CD",
@@ -294,5 +366,9 @@
   "Web Forms for Marketers 9.0 rev. 180503.zip": {
     "description": "Web Forms for Marketers 9.0 Update-2",
     "url": "https://dev.sitecore.net/~/media/3BFEB7C427D040178E619522EA272ECC.ashx"
+  },
+  "license.xml": {
+    "description": "license for Sitecore",
+    "url": "C:\\Sitecore\\Licenses\\Versusmind SAS\\license.xml"
   }
 }
