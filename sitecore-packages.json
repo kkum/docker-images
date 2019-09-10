@@ -282,5 +282,9 @@
   "Web Forms for Marketers 9.0 rev. 180503.zip": {
     "description": "Web Forms for Marketers 9.0 Update-2",
     "url": "https://dev.sitecore.net/~/media/3BFEB7C427D040178E619522EA272ECC.ashx"
+  },
+  "license.xml": {
+    "description": "license for Sitecore",
+    "url": "C:\\Sitecore\\Licenses\\FFB\\license.xml"
   }
 }
