@@ -9,12 +9,12 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 COPY . /install/
 
 # Download tools, prepare WDP package
-RUN $env:SIF_PACKAGE_SXA = 'Sitecore Experience Accelerator *.scwdp.zip'; `
+RUN $env:SIF_PACKAGE_DEF = 'Data Exchange Framework *.scwdp.zip'; `
     $env:INSTALL_TEMP = 'C:\\install'; `
-    Rename-Item -Path (Resolve-Path (Join-Path $env:INSTALL_TEMP $env:SIF_PACKAGE_SXA)).Path -NewName 'sxa.zip'; `
+    Rename-Item -Path (Resolve-Path (Join-Path $env:INSTALL_TEMP $env:SIF_PACKAGE_DEF)).Path -NewName 'def.zip'; `
     Invoke-WebRequest -Uri 'https://dist.nuget.org/win-x86-commandline/v5.0.2/nuget.exe' -UseBasicParsing -OutFile (Join-Path $env:INSTALL_TEMP '\\nuget.exe'); `
     & (Join-Path $env:INSTALL_TEMP '\\nuget.exe') install 'Microsoft.Web.Xdt' -Version '3.0.0' -OutputDirectory $env:INSTALL_TEMP; `
-    & (Join-Path $env:INSTALL_TEMP "\\Clear-Package.ps1") -Path (Join-Path $env:INSTALL_TEMP 'sxa.zip');
+    & (Join-Path $env:INSTALL_TEMP "\\Clear-Package.ps1") -Path (Join-Path $env:INSTALL_TEMP 'def.zip');
 
 # Runtime
 FROM $BASE_IMAGE as final
@@ -24,7 +24,7 @@ COPY --from=builder [ "/install/", "/install/" ]
 # Install module, apply transforms and cleanup
 RUN $env:SITENAME = 'sc'; `
     $env:INSTALL_TEMP = 'C:\\install'; `
-    Install-SitecoreConfiguration -Path (Join-Path $env:INSTALL_TEMP '\\install-package.json') -Package (Join-Path $env:INSTALL_TEMP '\\sxa.zip') -Sitename $env:SITENAME; `
+    Install-SitecoreConfiguration -Path (Join-Path $env:INSTALL_TEMP '\\install-package.json') -Package (Join-Path $env:INSTALL_TEMP '\\def.zip') -Sitename $env:SITENAME; `
     $env:SITE_PATH = 'C:\\inetpub\\{0}' -f $env:SITENAME; `
     $env:XDTDLL_PATH = Join-Path $env:SITE_PATH '\\bin\\Microsoft.Web.XmlTransform.dll'; `
     $env:WEBCONFIG_PATH = Join-Path $env:SITE_PATH '\\Web.config'; `
