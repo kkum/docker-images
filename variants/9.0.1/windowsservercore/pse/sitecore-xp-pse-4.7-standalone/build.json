@@ -1,0 +1,32 @@
+{
+    "tags": [
+        {
+            "tag": "sitecore-xp-pse-4.7-standalone:9.0.1-windowsservercore-ltsc2019",
+            "build-options": [
+                "--build-arg BUILD_IMAGE=mcr.microsoft.com/windows/servercore:ltsc2019",
+                "--build-arg BASE_IMAGE=sitecore-xp-standalone:9.0.171219-windowsservercore-ltsc2019"
+            ],
+            "deprecated": true,
+            "nottested": true
+        },
+        {
+            "tag": "sitecore-xp-pse-4.7-standalone:9.0.1-windowsservercore-1803",
+            "build-options": [
+                "--build-arg BUILD_IMAGE=mcr.microsoft.com/windows/servercore:1803",
+                "--build-arg BASE_IMAGE=sitecore-xp-standalone:9.0.171219-windowsservercore-1803"
+            ]
+        },
+        {
+            "tag": "sitecore-xp-pse-4.7-standalone:9.0.1-windowsservercore-1903",
+            "build-options": [
+                "--build-arg BUILD_IMAGE=mcr.microsoft.com/windows/servercore:1903",
+                "--build-arg BASE_IMAGE=sitecore-xp-standalone:9.0.171219-windowsservercore-1903"
+            ],
+            "deprecated": true,
+            "Reason": "No base images yet"
+        }
+    ],
+    "sources": [
+        "Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip"
+    ]
+}

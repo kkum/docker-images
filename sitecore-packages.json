@@ -163,6 +163,14 @@
     "description": "Sitecore Experience Platform 9.2 Initial Release",
     "url": "https://dev.sitecore.net/~/media/87332E19456741C696BAA67A2FC2DA54.ashx"
   },
+  "Sitecore Experience Accelerator 1.7 rev. 180410 for 9.0 CD.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator CD WDP for 9.0",
+    "url": "https://dev.sitecore.net/~/media/58DBBA4F1D2A44DB95725266DA130F6E.ashx"
+  },
+  "Sitecore Experience Accelerator 1.7 rev. 180410 for 9.0.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator 1.7",
+    "url": "https://dev.sitecore.net/~/media/035C469FF15442D9AE282AB2C125339C.ashx"
+  },
   "Sitecore Experience Accelerator 1.7.1 rev. 180604 for 8.2.zip": {
     "description": "Sitecore Experience Accelerator 1.7 Update 1",
     "url": "https://dev.sitecore.net/~/media/01650AF6AEE942B88DF325096F8ED0EE.ashx"
@@ -215,25 +223,17 @@
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
     "url": "https://dev.sitecore.net/~/media/8BD9C5190DA04730A28EDB9FDC92EE06.ashx"
   },
-  "Sitecore Experience Accelerator XM 1.8.1 rev. 190319 for 9.1.1.scwdp.zip": {
+  "Sitecore Experience Accelerator 1.8.1 rev. 190319 for 9.1.1 CD.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
-    "url": "https://dev.sitecore.net/~/media/F8CFFFD23CD54178B5749B0ECACB5813.ashx"
-  },
-  "Sitecore Experience Accelerator XM 1.8.1 rev. 190319 for 9.1.1 CD.scwdp.zip": {
-    "description": "Sitecore Experience Accelerator 1.8 Update-1",
-    "url": "https://dev.sitecore.net/~/media/768039F8BCB24FB5A78AA99AD4391A20.ashx"
-  },
-  "Sitecore Experience Accelerator 1.8.1 rev. 190319 for 9.1.1.zip": {
-    "description": "Sitecore Experience Accelerator 1.8 Update-1",
-    "url": "https://dev.sitecore.net/~/media/3E94F3558DD241D4B2DC8637D4BE184B.ashx"
+    "url": "https://dev.sitecore.net/~/media/E5D965AEFE7748D48C8698A3D57F0873.ashx"
   },
   "Sitecore Experience Accelerator 1.8.1 rev. 190319 for 9.1.1.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
     "url": "https://dev.sitecore.net/~/media/3B83F33FE0B848C6AF9F3B58E4408A96.ashx"
   },
-  "Sitecore Experience Accelerator 1.8.1 rev. 190319 for 9.1.1 CD.scwdp.zip": {
+  "Sitecore Experience Accelerator 1.8.1 rev. 190319 for 9.1.1.zip": {
     "description": "Sitecore Experience Accelerator 1.8 Update-1",
-    "url": "https://dev.sitecore.net/~/media/E5D965AEFE7748D48C8698A3D57F0873.ashx"
+    "url": "https://dev.sitecore.net/~/media/3E94F3558DD241D4B2DC8637D4BE184B.ashx"
   },
   "Sitecore Experience Accelerator 1.9.0 rev. 190528 for 9.2 CD.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.9",
@@ -250,6 +250,14 @@
   "Sitecore Experience Accelerator XM 1.8 rev. 181112 for 9.1.scwdp.zip": {
     "description": "Sitecore Experience Accelerator XM WDP for 9.1 CM",
     "url": "https://dev.sitecore.net/~/media/FA8A4DFAD3CA4DD3ACD0B624A6484281.ashx"
+  },
+  "Sitecore Experience Accelerator XM 1.8.1 rev. 190319 for 9.1.1 CD.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator 1.8 Update-1",
+    "url": "https://dev.sitecore.net/~/media/768039F8BCB24FB5A78AA99AD4391A20.ashx"
+  },
+  "Sitecore Experience Accelerator XM 1.8.1 rev. 190319 for 9.1.1.scwdp.zip": {
+    "description": "Sitecore Experience Accelerator 1.8 Update-1",
+    "url": "https://dev.sitecore.net/~/media/F8CFFFD23CD54178B5749B0ECACB5813.ashx"
   },
   "Sitecore Experience Accelerator XM 1.9.0 rev. 190528 for 9.2 CD.scwdp.zip": {
     "description": "Sitecore Experience Accelerator 1.9",
@@ -326,6 +334,18 @@
   "Sitecore JavaScript Services Server for Sitecore 9.2 XP 12.0.0 rev. 190522.scwdp.zip": {
     "description": "Sitecore JavaScript Services Server for Sitecore9.2.0",
     "url": "https://dev.sitecore.net/~/media/1D5D53DE1F4B43E8B3D70E0D0EE40A5D.ashx"
+  },
+  "Sitecore PowerShell Extensions-4.7.2 for Sitecore 8.scwdp.zip": {
+    "description": "Sitecore PowerShell Extension WDP 4.7.2 for Sitecore 8/9",
+    "url": "https://dev.sitecore.net/~/media/4918E7ADAAF049F4BC7BA5B73561F24F.ashx"
+  },
+  "Data Exchange Framework 3.0.0 rev. 01393.scwdp.zip": {
+    "description": "DEF 3.0.0 Converted locally from sitecore package",
+    "url": ""
+  },
+  "Data Exchange Framework CD Server 3.0.0 rev. 01393.scwdp.zip": {
+    "description": "DEF CD 3.0.0 Converted locally from sitecore package",
+    "url": ""
   },
   "Sitecore PowerShell Extensions-5.0 for 9.2.scwdp.zip": {
     "description": "Sitecore PowerShell Extensions 5.0 for 9.2",

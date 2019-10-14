@@ -1,0 +1,32 @@
+{
+    "tags": [
+        {
+            "tag": "sitecore-xp-sxa-1.7.0-cd:9.0.1-windowsservercore-ltsc2019",
+            "build-options": [
+                "--build-arg BUILD_IMAGE=mcr.microsoft.com/windows/servercore:ltsc2019",
+                "--build-arg BASE_IMAGE=sitecore-xp-cd:9.0.171219-windowsservercore-ltsc2019"
+            ],
+            "deprecated": true,
+            "nottested": true
+        },
+        {
+            "tag": "sitecore-xp-sxa-1.7.0-cd:9.0.1-windowsservercore-1803",
+            "build-options": [
+                "--build-arg BUILD_IMAGE=mcr.microsoft.com/windows/servercore:1803",
+                "--build-arg BASE_IMAGE=sitecore-xp-cd:9.0.171219-windowsservercore-1803"
+            ]
+        },
+        {
+            "tag": "sitecore-xp-sxa-1.7.0-cd:9.0.1-windowsservercore-1903",
+            "build-options": [
+                "--build-arg BUILD_IMAGE=mcr.microsoft.com/windows/servercore:1903",
+                "--build-arg BASE_IMAGE=sitecore-xp-cd:9.0.171219-windowsservercore-1903"
+            ],
+            "deprecated": true,
+            "Reason": "No base images yet"
+        }
+    ],
+    "sources": [
+        "Sitecore Experience Accelerator 1.7 rev. 180410 for 9.0 CD.scwdp.zip"
+    ]
+}
