@@ -1,7 +1,7 @@
 {
   "tags": [
     {
-      "tag": "sitecore-xm-sxa-ps-sqldev:9.2.0-windowsservercore-${windowsservercore_version}",
+      "tag": "sitecore-xm-sxa-def-sqldev:9.2.0-windowsservercore-${windowsservercore_version}",
       "build-options": [
         "--memory 4GB",
         "--build-arg BASE_IMAGE=sitecore-xm-sxa-sqldev:9.2.0-windowsservercore-${windowsservercore_version}",
@@ -11,7 +11,7 @@
       "experimental": true
     },
     {
-      "tag": "sitecore-xp-sxa-ps-sqldev:9.2.0-windowsservercore-${windowsservercore_version}",
+      "tag": "sitecore-xp-sxa-def-sqldev:9.2.0-windowsservercore-${windowsservercore_version}",
       "build-options": [
         "--memory 4GB",
         "--build-arg BASE_IMAGE=sitecore-xp-sxa-sqldev:9.2.0-windowsservercore-${windowsservercore_version}",
