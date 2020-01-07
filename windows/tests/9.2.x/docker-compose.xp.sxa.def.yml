@@ -59,26 +59,26 @@ services:
       - sql
       - xconnect
 
-  cd:
-    image: ${REGISTRY}sitecore-xp-sxa-def-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
-    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1"
-    volumes:
-      - ${LICENSE_PATH}:C:\license
-      - .\data\cd:C:\inetpub\wwwroot\App_Data\logs
-    ports:
-      - "44002:80"
-    links:
-      - sql
-      - solr
-      - xconnect
+  # cd:
+  #   image: ${REGISTRY}sitecore-xp-sxa-def-cd:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+  #   entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1"
+  #   volumes:
+  #     - ${LICENSE_PATH}:C:\license
+  #     - .\data\cd:C:\inetpub\wwwroot\App_Data\logs
+  #   ports:
+  #     - "44002:80"
+  #   links:
+  #     - sql
+  #     - solr
+  #     - xconnect
 
   cm:
     image: ${REGISTRY}sitecore-xp-sxa-def-standalone:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
-    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1"
+    entrypoint: powershell.exe -Command "& C:\\tools\\entrypoints\\iis\\Development.ps1 -WatchDirectoryParameters @{ Path = 'C:\\src'; Destination = 'C:\\inetpub\\wwwroot'; ExcludeFiles = @('Web.config'); }"
     volumes:
       - ${LICENSE_PATH}:C:\license
       - .\data\cm:C:\inetpub\wwwroot\App_Data\logs
-      - .\website:C:\src
+      #- .\publish\cm:C:\src
     ports:
       - "44001:80"
     links:
