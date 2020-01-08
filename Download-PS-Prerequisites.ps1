@@ -11,6 +11,10 @@ param(
     ,
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
+    [string]$ToolsPath = (Join-Path $PSScriptRoot "\tools")
+    ,
+    [Parameter(Mandatory = $false)]
+    [ValidateNotNullOrEmpty()]
     [string]$SitecoreUsername
     ,
     [Parameter(Mandatory = $false)]
@@ -80,7 +84,7 @@ $packages.GetEnumerator() | ForEach-Object {
 # Install Azure toolkit
 Write-Host "Prepare Azure toolkit"
 
-$sat = (Join-Path (Get-Item $PSScriptRoot).FullName "tools\sat")
+$sat = (Join-Path (Get-Item $ToolsPath).FullName "sat")
 
 Write-Host "Sitecore Azure Toolkit directory $sat"
 
