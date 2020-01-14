@@ -38,12 +38,10 @@ function Invoke-PackageRestore {
     $ProgressPreference = "SilentlyContinue"
 
     $sitecoreDownloadUrl = "https://dev.sitecore.net"
-
-    # Load packages file
-    $packagesFile = Get-Item -Path (Join-Path $PSScriptRoot "..\..\sitecore-packages.json")
-    $packages = $packagesFile | Get-Content | ConvertFrom-Json
-
     $destinationPath = $Destination.TrimEnd('\')
+
+    # Load packages
+    $packages = $packages = Get-Packages
 
     # Ensure destination exists
     if (!(Test-Path $destinationPath -PathType "Container")) {
@@ -159,11 +157,17 @@ function Invoke-Build {
         [Parameter(Mandatory = $false)]
         [ValidateSet("Always", "Never")]
         [string]$PullMode = "Always"
+        ,
+        [Parameter(Mandatory = $false)]
+        [switch]$SkipHashValidation
     )
 
     # Setup
     $ErrorActionPreference = "STOP"
     $ProgressPreference = "SilentlyContinue"
+
+    # Load packages
+    $packages = $packages = Get-Packages
 
     # Find out what to build
     $specs = Initialize-BuildSpecifications -Specifications (Get-BuildSpecifications -Path $Path -AutoGenerateWindowsVersionTags $AutoGenerateWindowsVersionTags) -InstallSourcePath $InstallSourcePath -Tags $Tags -ImplicitTagsBehavior $ImplicitTagsBehavior -DeprecatedTagsBehavior $DeprecatedTagsBehavior -ExperimentalTagBehavior $ExperimentalTagBehavior
@@ -223,7 +227,7 @@ function Invoke-Build {
                 $previousDigest = (docker image inspect $tag) | ConvertFrom-Json | ForEach-Object { $_.Id }
             }
 
-            # Copy license.xml and any missing source files into build context
+            # Copy any missing source files into build context
             $spec.Sources | ForEach-Object {
                 $sourcePath = $_
 
@@ -239,6 +243,36 @@ function Invoke-Build {
 
                 if (!(Test-Path -Path $targetPath) -or ($sourceItem.Name -eq "license.xml")) {
                     Copy-Item $sourceItem -Destination $targetPath -Verbose:$VerbosePreference
+                }
+
+                # Check to see if we can lookup the hash of the source filename in sitecore-packages.json
+                if (!$SkipHashValidation.IsPresent)
+                {
+                    $package = $packages."$($sourceItem.Name)"
+
+                    if ($null -ne $package -and ![string]::IsNullOrEmpty($package.hash))
+                    {
+                        $exceptedTargetFileHash = $package.hash
+
+                        # Calculate hash of target file
+                        $currentTargetFileHash = Get-FileHash -Path $targetPath -Algorithm "SHA256" | Select-Object -ExpandProperty "Hash"
+
+                        # Compare hashes and fail if not the same
+                        if ($currentTargetFileHash -eq $exceptedTargetFileHash)
+                        {
+                            Write-Host ("### Hash of '{0}' is valid." -f $sourceItem.Name)
+                        }
+                        else
+                        {
+                            Remove-Item -Path $targetPath -Force -Verbose:$VerbosePreference
+
+                            throw ("Hash of '{0}' is invalid:`n Expected: {1}`n Current : {2}`nThe target file '{3}' was deleted, please also delete the source file '{4}', re-download and try again." -f $sourceItem.Name, $exceptedTargetFileHash, $currentTargetFileHash, $targetPath, $sourceItem.FullName)
+                        }
+                    }
+                    else
+                    {
+                        Write-Verbose ("Skipping hash validation on '{0}', package was not found or no hash was defined." -f $sourceItem.Name)
+                    }
                 }
             }
 
@@ -742,4 +776,15 @@ function Get-LatestSupportedVersionTags {
     Write-Output ("*:{0}*{1}" -f $latest.Sitecore, $latest.WindowsServerCore)
     Write-Output ("*:{0}*{1}" -f $latest.Sitecore, $latest.NanoServer)
     Write-Output ("*:{0}*{1}" -f $latest.Redis, $latest.WindowsServerCore)
+}
+
+function Get-Packages
+{
+    [CmdletBinding()]
+    param()
+
+    $packagesFile = Get-Item -Path (Join-Path $PSScriptRoot "..\..\sitecore-packages.json")
+    $packages = $packagesFile | Get-Content | ConvertFrom-Json
+
+    Write-Output $packages
 }
