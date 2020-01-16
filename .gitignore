@@ -15,3 +15,4 @@ windows/tests/**/data/**/*
 
 /.vscode/
 /tools/
+/Sitecore.Docker.code-workspace
