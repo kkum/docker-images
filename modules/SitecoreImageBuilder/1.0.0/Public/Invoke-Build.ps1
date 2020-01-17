@@ -66,7 +66,6 @@ function Invoke-Build
     $ErrorActionPreference = "STOP"
     $ProgressPreference = "SilentlyContinue"
 
-    $watch = [System.Diagnostics.StopWatch]::StartNew()
     $reportRecords = [System.Collections.Generic.List[ReportRecord]]@()
 
     # Load packages
