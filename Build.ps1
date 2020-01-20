@@ -248,6 +248,7 @@ foreach ($wv in $OSVersion)
             if ($Topology -contains "xp")
             {
                 $xpDefTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
+                $xpJssTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
         }
     }
