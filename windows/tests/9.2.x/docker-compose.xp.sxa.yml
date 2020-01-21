@@ -76,9 +76,25 @@ services:
     volumes:
       - ${LICENSE_PATH}:C:\license
       - .\data\cm:C:\inetpub\wwwroot\App_Data\logs
+      - .\src\cm:C:\src
+    entrypoint: powershell.exe -NoLogo -NoProfile -File C:\\tools\\entrypoints\\iis\\Development.ps1
+    environment:
+      - "ENTRYPOINT_STDOUT_IIS_ACCESS_LOG_ENABLED=false"
+      - "ENTRYPOINT_STDOUT_IIS_ERROR_LOG_ENABLED=false"
+      - "ENTRYPOINT_STDOUT_SITECORE_LOG_ENABLED=true"
     ports:
       - "44001:80"
     links:
       - sql
       - solr
       - xconnect
+
+  identity:
+    image: ${REGISTRY}sitecore-xp-identity:${SITECORE_VERSION}-windowsservercore-${WINDOWSSERVERCORE_VERSION}
+    volumes:
+      - ${LICENSE_PATH}:C:\license
+      - .\data\identity:C:\inetpub\wwwroot\wwwroot\logs
+    ports:
+      - "44005:80"
+    links:
+      - sql
