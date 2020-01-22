@@ -38,6 +38,8 @@ function Invoke-PackageRestore
     $ErrorActionPreference = "STOP"
     $ProgressPreference = "SilentlyContinue"
 
+    $watch = [System.Diagnostics.StopWatch]::StartNew()
+
     $sitecoreDownloadUrl = "https://dev.sitecore.net"
     $destinationPath = $Destination.TrimEnd('\')
 
