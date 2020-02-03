@@ -103,7 +103,7 @@ Import-Module (Join-Path $sat "tools\Sitecore.Cloud.Cmdlets.dll")  -Force
 
 # Find modules to transform
 $packages.Keys | Where-Object { $_ -notlike "*Azure Toolkit*" } | ForEach-Object {
-    $zip = Get-Item (Join-Path "C:\Sitecore\Repository\" "$_")
+    $zip = Get-Item (Join-Path "$InstallSourcePath" "$_")
     Write-Host "Convert to WDP $zip"
     ConvertTo-SCModuleWebDeployPackage -Path $zip -Destination $InstallSourcePath -Force
 }
