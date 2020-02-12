@@ -237,17 +237,17 @@
     "url": "",
     "hash": ""
   },
-  "Data Exchange Framework 3.0.0 rev. 01393.scwdp.zip": {
-    "description": "DEF 3.0.0 Converted locally from sitecore package",
-    "packageName" : "Data Exchange Framework 3.0.0 rev. 01393.zip",
-    "packageUrl" : "https://dev.sitecore.net/~/media/833DC3BC5EC14383AF658F372E073E2D.ashx",
+  "Data Exchange Framework 3.0.1 rev. 01402.scwdp.zip": {
+    "description": "DEF 3.0.1 Converted locally from sitecore package",
+    "packageName" : "Data Exchange Framework 3.0.1 rev. 01402.zip",
+    "packageUrl" : "https://dev.sitecore.net/~/media/52C328254F62456BA721E8327EA647A7.ashx",
     "url": "",
     "hash": ""
   },
-  "Data Exchange Framework CD Server 3.0.0 rev. 01393.scwdp.zip": {
-    "description": "DEF CD 3.0.0 Converted locally from sitecore package",
-    "packageName" : "Data Exchange Framework CD Server 3.0.0 rev. 01393.zip",
-    "packageUrl":"https://dev.sitecore.net/~/media/81010542864F4C349863705F02D1A843.ashx",
+  "Data Exchange Framework CD Server 3.0.1 rev. 01402.scwdp.zip": {
+    "description": "DEF CD 3.0.1 Converted locally from sitecore package",
+    "packageName" : "Data Exchange Framework CD Server 3.0.1 rev. 01402.zip",
+    "packageUrl":"https://dev.sitecore.net/~/media/EBEB35A9EDE1422494E89BFF0D3A1ED2.ashx",
     "url": "",
     "hash": ""
   }
