@@ -272,6 +272,7 @@ if ($tags)
 {
     Write-Message "The following images will be built:"
     $tags
+    $tags | out-file ("{0:yyyyMMdd-hhmm}-tags.txt" -f (Get-Date))
 }
 else
 {

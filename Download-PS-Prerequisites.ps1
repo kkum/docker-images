@@ -15,11 +15,11 @@ param(
     ,
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
-    [string]$SitecoreUsername
+    [string]$SitecoreUsername = $env:DEV_SITECORE_USERNAME
     ,
     [Parameter(Mandatory = $false)]
     [ValidateNotNullOrEmpty()]
-    [string]$SitecorePassword
+    [string]$SitecorePassword = $env:DEV_SITECORE_PASSWORD
 
 
 )
@@ -84,8 +84,9 @@ $packages.GetEnumerator() | ForEach-Object {
 # Install Azure toolkit
 Write-Host "Prepare Azure toolkit"
 
-$sat = (Join-Path (Get-Item $ToolsPath).FullName "sat")
+$sat = (Join-Path ((Get-Item $ToolsPath).FullName) "sat")
 
+Write-Host "Sitecore Azure Toolkit directory $ToolsPath"
 Write-Host "Sitecore Azure Toolkit directory $sat"
 
 # Ensure Azure SAT destination exists
