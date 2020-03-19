@@ -17,21 +17,7 @@ RUN $env:ROOT_CERT_NAME = 'sitecore-root'; `
     $env:CERT_PASSWORD = 'Twelve4-4Cranial-Rag-kayo4-Ragweed-This8-grunge9-0Foss-7finalist-hubby'; `
     New-Item -Path 'C:\\certificates' -ItemType 'Directory' | Out-Null; `
     $password = ConvertTo-SecureString -String $env:CERT_PASSWORD -Force -AsPlainText; `
-    # $rootCert = New-SelfSignedCertificate -Certstorelocation $env:CERT_STORE -DnsName $env:ROOT_CERT_NAME -KeyUsage 'CRLSign', 'CertSign' -KeyExportPolicy 'Exportable' -Provider 'Microsoft Enhanced RSA and AES Cryptographic Provider' -HashAlgorithm 'SHA256'; `
-    $rootCert = New-SelfSignedCertificate `
-    -CertStoreLocation $env:CERT_STORE `
-    -DnsName $env:ROOT_CERT_NAME `
-    -Provider 'Microsoft Enhanced RSA and AES Cryptographic Provider' `
-    -KeyUsage DigitalSignature, KeyEncipherment, DataEncipherment `
-    -KeyAlgorithm RSA `
-    -KeyLength 2048 `
-    -NotBefore (Get-Date) `
-    -NotAfter (Get-Date).AddYears(10) `
-    -FriendlyName $env:ROOT_CERT_NAME `
-    -HashAlgorithm SHA256 `
-    -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1") `
-    -KeyExportPolicy Exportable `
-    -KeySpec KeyExchange; `
+    $rootCert = New-SelfSignedCertificate -Certstorelocation $env:CERT_STORE -DnsName $env:ROOT_CERT_NAME -KeyUsage 'CRLSign', 'CertSign' -KeyExportPolicy 'Exportable' -Provider 'Microsoft Enhanced RSA and AES Cryptographic Provider' -HashAlgorithm 'SHA256'; `
     $rootCert | Export-PfxCertificate -FilePath ('C:\\certificates\\{1}.pfx' -f $env:CERT_PATH, $env:ROOT_CERT_NAME) -Password $password | Out-Null; `
     New-SelfSignedCertificate -CertStoreLocation $env:CERT_STORE -DnsName $env:XCONNECT_SSL_CERT_NAME, '127.0.0.1', 'localhost' -Signer $rootCert -KeyExportPolicy 'Exportable' -Provider 'Microsoft Enhanced RSA and AES Cryptographic Provider' | Export-PfxCertificate -FilePath ('C:\\certificates\\{1}.pfx' -f $env:CERT_PATH, $env:XCONNECT_SSL_CERT_NAME) -Password $password | Out-Null; `
     New-SelfSignedCertificate -CertStoreLocation $env:CERT_STORE -DnsName $env:XCONNECT_CLIENT_CERT_NAME -Signer $rootCert -KeyExportPolicy 'Exportable' -Provider 'Microsoft Enhanced RSA and AES Cryptographic Provider' | Export-PfxCertificate -FilePath ('C:\\certificates\\{1}.pfx' -f $env:CERT_PATH, $env:XCONNECT_CLIENT_CERT_NAME) -Password $password | Out-Null; `
