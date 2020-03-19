@@ -1,13 +1,49 @@
 {
   "tags": [
     {
+      "tag": "sitecore-xm-sxa-def-cm:9.3.0-windowsservercore-${windowsservercore_version}",
+      "build-options": [
+        "--build-arg BASE_IMAGE=sitecore-xm-sxa-cm:9.3.0-windowsservercore-${windowsservercore_version}",
+        "--build-arg ASSETS_IMAGE=sitecore-assets:9.3.0-nanoserver-${nanoserver_version}",
+        "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework 4.0.0 rev. 01437.scwdp.zip'"
+      ],
+      "experimental": false
+    },
+    {
+      "tag": "sitecore-xm-sxa-def-cd:9.3.0-windowsservercore-${windowsservercore_version}",
+      "build-options": [
+        "--build-arg BASE_IMAGE=sitecore-xm-sxa-cd:9.3.0-windowsservercore-${windowsservercore_version}",
+        "--build-arg ASSETS_IMAGE=sitecore-assets:9.3.0-nanoserver-${nanoserver_version}",
+        "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework 4.0.0 rev. 01437.scwdp.zip'"
+      ],
+      "experimental": false
+    },
+    {
+      "tag": "sitecore-xp-sxa-def-standalone:9.3.0-windowsservercore-${windowsservercore_version}",
+      "build-options": [
+        "--build-arg BASE_IMAGE=sitecore-xp-sxa-standalone:9.3.0-windowsservercore-${windowsservercore_version}",
+        "--build-arg ASSETS_IMAGE=sitecore-assets:9.3.0-nanoserver-${nanoserver_version}",
+        "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework 4.0.0 rev. 01437.scwdp.zip'"
+      ],
+      "experimental": false
+    },
+    {
+      "tag": "sitecore-xp-sxa-def-cd:9.3.0-windowsservercore-${windowsservercore_version}",
+      "build-options": [
+        "--build-arg BASE_IMAGE=sitecore-xp-sxa-cd:9.3.0-windowsservercore-${windowsservercore_version}",
+        "--build-arg ASSETS_IMAGE=sitecore-assets:9.3.0-nanoserver-${nanoserver_version}",
+        "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework 4.0.0 rev. 01437.scwdp.zip'"
+      ],
+      "experimental": false
+    },
+    {
       "tag": "sitecore-xm-sxa-def-cm:9.2.0-windowsservercore-${windowsservercore_version}",
       "build-options": [
         "--build-arg BASE_IMAGE=sitecore-xm-sxa-cm:9.2.0-windowsservercore-${windowsservercore_version}",
         "--build-arg ASSETS_IMAGE=sitecore-assets:9.2.0-nanoserver-${nanoserver_version}",
         "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework 3.0.1 rev. 01402.scwdp.zip'"
       ],
-      "experimental": true
+      "experimental": false
     },
     {
       "tag": "sitecore-xm-sxa-def-cd:9.2.0-windowsservercore-${windowsservercore_version}",
@@ -16,7 +52,7 @@
         "--build-arg ASSETS_IMAGE=sitecore-assets:9.2.0-nanoserver-${nanoserver_version}",
         "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework CD Server 3.0.1 rev. 01402.scwdp.zip'"
       ],
-      "experimental": true
+      "experimental": false
     },
     {
       "tag": "sitecore-xp-sxa-def-standalone:9.2.0-windowsservercore-${windowsservercore_version}",
@@ -25,7 +61,7 @@
         "--build-arg ASSETS_IMAGE=sitecore-assets:9.2.0-nanoserver-${nanoserver_version}",
         "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework 3.0.1 rev. 01402.scwdp.zip'"
       ],
-      "experimental": true
+      "experimental": false
     },
     {
       "tag": "sitecore-xp-sxa-def-cd:9.2.0-windowsservercore-${windowsservercore_version}",
@@ -34,7 +70,7 @@
         "--build-arg ASSETS_IMAGE=sitecore-assets:9.2.0-nanoserver-${nanoserver_version}",
         "--build-arg ASSETS_USE_WDP='C:\\packages\\Data Exchange Framework CD Server 3.0.1 rev. 01402.scwdp.zip'"
       ],
-      "experimental": true
+      "experimental": false
     }
   ],
   "sources": []

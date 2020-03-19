@@ -93,10 +93,9 @@ Write-Host "Sitecore Azure Toolkit directory $sat"
 if (!(Test-Path $sat -PathType "Container")) {
     Write-Host "Create SAT directory $sat"
     New-Item $sat -ItemType Directory -WhatIf:$false | Out-Null
+    # extract Sitecore Azure Toolkit
+    Get-ChildItem -Path $InstallSourcePath -Filter "*Azure Toolkit*" -Recurse | Select-Object -First 1 | Expand-Archive -DestinationPath $sat -Force
 }
-
-# extract Sitecore Azure Toolkit
-Get-ChildItem -Path $InstallSourcePath -Filter "*Azure Toolkit*" -Recurse | Select-Object -First 1 | Expand-Archive -DestinationPath $sat -Force
 
 # import Azure toolkit
 Write-Host "Import Sitecore Azure Toolkit"

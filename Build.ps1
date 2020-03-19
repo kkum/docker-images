@@ -42,8 +42,7 @@ param(
     [string]$IsolationModeBehaviour = "ForceHyperV"
 )
 
-function Write-Message
-{
+function Write-Message {
     param(
         [string]$Message
     )
@@ -53,8 +52,7 @@ function Write-Message
     Write-Host "$(Get-Date -Format $timeFormat): $($Message)"
 }
 
-if ([string]::IsNullOrEmpty($InstallSourcePath))
-{
+if ([string]::IsNullOrEmpty($InstallSourcePath)) {
     $InstallSourcePath = (Join-Path -Path $PSScriptRoot -ChildPath "\packages")
 }
 
@@ -84,14 +82,12 @@ filter LinuxFilter
 filter WindowsFilter
 {
     param([string]$Version)
-    if ($_ -like "*-windowsservercore-$($Version)" -or $_ -like "*-nanoserver-$($windowsVersionMapping[$Version])")
-    {
+    if ($_ -like "*-windowsservercore-$($Version)" -or $_ -like "*-nanoserver-$($windowsVersionMapping[$Version])") {
         $_
     }
 }
 
-filter SitecoreFilter
-{
+filter SitecoreFilter {
     param([string]$Version)
     if ($_ -like "*:$($Version)-windowsservercore-*" -or $_ -like "*:$($Version)-nanoserver-*" -or $_ -like "*:$($Version)-linux")
     {
@@ -107,8 +103,7 @@ if ($OSVersion -eq "linux")
 
 $availableSpecs = Get-BuildSpecifications -Path (Join-Path $PSScriptRoot $rootFolder)
 
-if (!$IncludeExperimental)
-{
+if (!$IncludeExperimental) {
     Write-Message "Excluding experimental images."
     $availableSpecs = $availableSpecs | Where-Object { !$_.Experimental }
 }
@@ -124,16 +119,16 @@ $xpTags = $availableTags | Where-Object { $_ -match "sitecore-xp-(?!sxa|spe|jss|
 $xcTags = $availableTags | Where-Object { $_ -match "sitecore-xc-(?!sxa|spe|jss|def).*:.*" }
 
 $xmSpeTags = $availableTags | Where-Object { $_ -match "sitecore-xm-(spe).*:.*" }
-$xmSxaTags = $availableTags | Where-Object { $_ -match "sitecore-xm-(sxa).*:.*" }
-$xmJssTags = $availableTags | Where-Object { $_ -match "sitecore-xm-(jss).*:.*" }
+$xmSxaTags = $availableTags | Where-Object { $_ -match "sitecore-xm-(sxa).*:.*" -and $_ -notmatch ".*(jss).*" }
+$xmJssTags = $availableTags | Where-Object { $_ -match "sitecore-xm-.*(jss).*:.*" }
 
 $xpSpeTags = $availableTags | Where-Object { $_ -match "sitecore-xp-(spe).*:.*" }
-$xpSxaTags = $availableTags | Where-Object { $_ -match "sitecore-xp-(sxa).*:.*" }
-$xpJssTags = $availableTags | Where-Object { $_ -match "sitecore-xp-(jss).*:.*" }
+$xpSxaTags = $availableTags | Where-Object { $_ -match "sitecore-xp-(sxa).*:.*" -and $_ -notmatch ".*(jss).*" }
+$xpJssTags = $availableTags | Where-Object { $_ -match "sitecore-xp-.*(jss).*:.*" }
 $xpDefTags = $availableTags | Where-Object { $_ -match "sitecore-xp-(def).*:.*" }
 
 $xcSpeTags = $availableTags | Where-Object { $_ -match "sitecore-xc-(spe).*:.*" }
-$xcSxaTags = $availableTags | Where-Object { $_ -match "sitecore-xc-(sxa).*:.*" }
+$xcSxaTags = $availableTags | Where-Object { $_ -match "sitecore-xc-(sxa).*:.*" -and $_ -notmatch ".*(jss).*" }
 
 $knownTags = $defaultTags + $xpMiscTags + $xcMiscTags + $assetTags + $xmTags + $xpTags + $xcTags + $xmSpeTags + $xpSpeTags + $xcSpeTags + $xmSxaTags + $xpSxaTags + $xcSxaTags + $xmJssTags + $xpJssTags
 # These tags are not yet classified and no dependency check is made at this point to know which image it belongs to.
@@ -143,23 +138,19 @@ foreach ($wv in $OSVersion)
 {
     $defaultTags | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
 
-    if ($Topology -contains "xp")
-    {
+    if ($Topology -contains "xp") {
         $xpMiscTags | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
     }
 
-    if ($Topology -contains "xc")
-    {
+    if ($Topology -contains "xc") {
         $xcMiscTags | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
     }
 
-    foreach ($scv in $SitecoreVersion)
-    {
+    foreach ($scv in $SitecoreVersion) {
         $assetTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
         $catchAllTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
 
-        if ($Topology -contains "xm")
-        {
+        if ($Topology -contains "xm") {
             $xmTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
 
             if ($wv -eq "linux")
@@ -168,8 +159,7 @@ foreach ($wv in $OSVersion)
             }
         }
 
-        if ($Topology -contains "xp")
-        {
+        if ($Topology -contains "xp") {
             $xpTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
 
             if ($wv -eq "linux")
@@ -177,21 +167,16 @@ foreach ($wv in $OSVersion)
                 $xpTags | SitecoreFilter -Version $scv | LinuxFilter | ForEach-Object { $tags.Add($_) > $null }
             }
         }
-
-        if ($Topology -contains "xc")
-        {
+        if ($Topology -contains "xc") {
             $xcTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
         }
 
-        if ($IncludeSpe)
-        {
-            if ($Topology -contains "xm")
-            {
+        if ($IncludeSpe) {
+            if ($Topology -contains "xm") {
                 $xmSpeTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
 
-            if ($Topology -contains "xp")
-            {
+            if ($Topology -contains "xp") {
                 $xpSpeTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
 
                 if ($wv -eq "linux")
@@ -200,21 +185,17 @@ foreach ($wv in $OSVersion)
                 }
             }
 
-            if ($Topology -contains "xc")
-            {
+            if ($Topology -contains "xc") {
                 $xcSpeTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
         }
 
-        if ($IncludeSxa)
-        {
-            if ($Topology -contains "xm")
-            {
+        if ($IncludeSxa) {
+            if ($Topology -contains "xm") {
                 $xmSxaTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
 
-            if ($Topology -contains "xp")
-            {
+            if ($Topology -contains "xp") {
                 $xpSxaTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
 
                 if ($wv -eq "linux")
@@ -223,32 +204,26 @@ foreach ($wv in $OSVersion)
                 }
             }
 
-            if ($Topology -contains "xc")
-            {
+            if ($Topology -contains "xc") {
                 $xcSxaTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
         }
 
-        if ($IncludeJss)
-        {
-            if ($Topology -contains "xm")
-            {
+        if ($IncludeJss) {
+            if ($Topology -contains "xm") {
                 $xmJssTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
 
-            if ($Topology -contains "xp")
-            {
+            if ($Topology -contains "xp") {
                 $xpJssTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
         }
 
-        if ($IncludeDef)
-        {
+        if ($IncludeDef) {
 
-            if ($Topology -contains "xp")
-            {
+            if ($Topology -contains "xp") {
                 $xpDefTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
-                $xpJssTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
+                $xpDefTags | SitecoreFilter -Version $scv | WindowsFilter -Version $wv | ForEach-Object { $tags.Add($_) > $null }
             }
         }
     }
@@ -256,27 +231,22 @@ foreach ($wv in $OSVersion)
 
 $tags = [System.Collections.ArrayList]@($tags | Select-Object -Unique)
 
-if ($SkipExistingImage)
-{
+if ($SkipExistingImage) {
     Write-Message "Existing images will be excluded from the build."
     $existingImages = docker images --format '{{.Repository}}:{{.Tag}}' --filter 'dangling=false'
-    foreach ($existingImage in $existingImages)
-    {
-        if ($tags -contains $existingImage)
-        {
+    foreach ($existingImage in $existingImages) {
+        if ($tags -contains $existingImage) {
             $tags.Remove($existingImage)
         }
     }
 }
 
-if ($tags)
-{
+if ($tags) {
     Write-Message "The following images will be built:"
     $tags
     $tags | out-file ("{0:yyyyMMdd-hhmm}-tags.txt" -f (Get-Date))
 }
-else
-{
+else {
     Write-Message "No images need to be built."
     exit
 }
