@@ -232,30 +232,55 @@
     "hash": "AD843341D495A7C52CDAFBEAA90023E447C65A691B2F39EDAC9B1D2C6C751046"
   },
   "Sitecore Publishing Module 9.3.0.0.scwdp.zip": {
-    "packageName" : "Sitecore Publishing Module 9.3.0.0 rev. r00546.2197.zip",
+    "packageName": "Sitecore Publishing Module 9.3.0.0 rev. r00546.2197.zip",
     "packageUrl": "https://dev.sitecore.net/~/media/417C43AC4F334C4085D18925367FE79A.ashx",
     "url": "",
     "hash": ""
   },
   "Data Exchange Framework 3.0.1 rev. 01402.scwdp.zip": {
     "description": "DEF 3.0.1 Converted locally from sitecore package",
-    "packageName" : "Data Exchange Framework 3.0.1 rev. 01402.zip",
-    "packageUrl" : "https://dev.sitecore.net/~/media/52C328254F62456BA721E8327EA647A7.ashx",
+    "packageName": "Data Exchange Framework 3.0.1 rev. 01402.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/52C328254F62456BA721E8327EA647A7.ashx",
     "url": "",
     "hash": ""
   },
   "Data Exchange Framework CD Server 3.0.1 rev. 01402.scwdp.zip": {
     "description": "DEF CD 3.0.1 Converted locally from sitecore package",
-    "packageName" : "Data Exchange Framework CD Server 3.0.1 rev. 01402.zip",
-    "packageUrl":"https://dev.sitecore.net/~/media/EBEB35A9EDE1422494E89BFF0D3A1ED2.ashx",
+    "packageName": "Data Exchange Framework CD Server 3.0.1 rev. 01402.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/EBEB35A9EDE1422494E89BFF0D3A1ED2.ashx",
     "url": "",
     "hash": ""
   },
   "Data Exchange Framework 4.0.0 rev. 01437.scwdp.zip": {
     "description": "DEF 4.0.0 rev. 01437 Converted locally from sitecore package",
-    "packageName" : "Data Exchange Framework 4.0.0 rev. 01437.zip",
-    "packageUrl" : "https://dev.sitecore.net/~/media/531A4CA29A4F40B5A2A8CCFD30B11B8A.ashx",
+    "packageName": "Data Exchange Framework 4.0.0 rev. 01437.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/531A4CA29A4F40B5A2A8CCFD30B11B8A.ashx",
     "url": "",
     "hash": ""
+  },
+  "Sitecore Connect for Sitecore DAM-2.0.0.scwdp.zip": {
+    "description": "Sitecore Connect for Sitecore DAM-2.0.0 Locally Converted from Sitecore package",
+    "packageName": "Sitecore Connect for Sitecore DAM-2.0.0.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/7F118478CF78478087A1DB3EBDF9FBFE.ashx"
+  },
+  "Sitecore Connect for CMP XP 2.0.0 rev. 200116 for 9.3.scwdp.zip": {
+    "description": "Sitecore Connect for CMP XP 2.0.0 rev. 200116 for 9.3 Locally Converted from Sitecore package",
+    "packageName": "Sitecore Connect for CMP XP 2.0.0 rev. 200116 for 9.3.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/677A38646FAE4213BDC5102CEE5AC1AB.ashx"
+  },
+  "Sitecore Connect for CMP XM 2.0.0 rev. 200116 for 9.3.scwdp.zip": {
+    "description": "Sitecore Connect for CMP XM 2.0.0 rev. 200116 for 9.3 Locally Converted from Sitecore package",
+    "packageName": "Sitecore Connect for CMP XM 2.0.0 rev. 200116 for 9.3.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/1CFC671040B24B03BABA7A07CBA698C8.ashx"
+  },
+  "Sitecore Connect for Salesforce Marketing Cloud - Behavioral Data Exchange 4.0.0 rev. 00265.scwdp.zip": {
+    "description": "Sitecore Connect for Salesforce Marketing Cloud - Behavioral Data Exchange 4.0.0 rev. 00265 Locally Converted from Sitecore package",
+    "packageName": "Sitecore Connect for Salesforce Marketing Cloud - Behavioral Data Exchange 4.0.0 rev. 00265.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/EF8DBC7CF27F430299302B32E88EC7D0.ashx"
+  },
+  "Sitecore Connect for Salesforce Marketing Cloud - Content Exchange 4.0.0 rev. 00141.scwdp.zip": {
+    "description": "Sitecore Connect for Salesforce Marketing Cloud - Content Exchange 4.0.0 rev. 00141 Locally Converted from Sitecore package",
+    "packageName": "Sitecore Connect for Salesforce Marketing Cloud - Content Exchange 4.0.0 rev. 00141.zip",
+    "packageUrl": "https://dev.sitecore.net/~/media/45146A1EAF6A4CF79560FEE62E59A1AA.ashx"
   }
 }

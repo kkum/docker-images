@@ -244,7 +244,7 @@ if ($SkipExistingImage) {
 if ($tags) {
     Write-Message "The following images will be built:"
     $tags
-    $tags | out-file ("{0:yyyyMMdd-hhmm}-tags.txt" -f (Get-Date))
+    $tags | out-file ("{0:yyyyMMdd-HHmm}-tags.txt" -f (Get-Date))
 }
 else {
     Write-Message "No images need to be built."

@@ -15,16 +15,19 @@ COPY --from=assets ["${ASSETS_USE_WDP}", "C:\\temp\\packages\\"]
 
 # expand selected wdp into installation directory
 RUN Expand-Archive -Path 'C:\\temp\\packages\\*.zip' -DestinationPath 'C:\\temp'; `
-    Copy-Item -Path 'C:\\temp\\Content\\Website\\*' -Destination 'C:\\inetpub\\wwwroot' -Recurse -Force;
+    Copy-Item -Path 'C:\\temp\\Content\\Website\\*' -Destination 'C:\\inetpub\\wwwroot' -Recurse -Force; `
+    Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\App_Data\\Models';
 
 # configure wwwroot
 RUN Remove-Item -Path 'C:\\inetpub\\wwwroot\\App_Data\\jobs' -Force -Recurse; `
-    Remove-Item -Path 'C:\\inetpub\\wwwroot\\App_Data\\logs' -Force -Recurse;
+    Remove-Item -Path 'C:\\inetpub\\wwwroot\\App_Data\\logs' -Force -Recurse; `
+    Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\App_Data\\Models';
 
 # copy tools, certificates and transforms
 COPY --from=assets ["C:\\install\\tools\\", "C:\\inetpub\\wwwroot\\temp\\install\\tools\\"]
 COPY --from=certificates ["C:\\certificates\\", "C:\\inetpub\\wwwroot\\temp\\install\\certificates\\"]
 COPY .\\config\\ C:\\inetpub\\wwwroot\\
+RUN Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\App_Data\\Models';
 
 # find transform files, replace variables and do transformation
 RUN $env:XCONNECT_CLIENT_CERT_THUMBPRINT = (Get-Content -Path 'C:\\inetpub\\wwwroot\\temp\\install\\certificates\\xconnect-client.thumbprint' | Out-String).Trim(); `
@@ -34,7 +37,8 @@ RUN $env:XCONNECT_CLIENT_CERT_THUMBPRINT = (Get-Content -Path 'C:\\inetpub\\wwwr
     $xdts.AddRange(@(Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\App_Data\\*.xdt' -Recurse)); `
     $xdts | ForEach-Object { (Get-Content -Path $_.FullName).Replace('${xconnect_client_certificate_thumbprint}', $env:XCONNECT_CLIENT_CERT_THUMBPRINT) | Out-File -FilePath $_.FullName -Encoding utf8; }; `
     $xdts | ForEach-Object { & 'C:\\inetpub\\wwwroot\\temp\\install\\tools\\scripts\\Invoke-XdtTransform.ps1' -Path $_.FullName.Replace('.xdt', '') -XdtPath $_.FullName -XdtDllPath 'C:\\inetpub\\wwwroot\\temp\\install\\tools\\bin\\Microsoft.Web.XmlTransform.dll'; }; `
-    $xdts | ForEach-Object { Remove-Item -Path $_.FullName; };
+    $xdts | ForEach-Object { Remove-Item -Path $_.FullName; };`
+    Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\App_Data\\Models';
 
 FROM $BASE_IMAGE
 
@@ -84,7 +88,8 @@ RUN $env:INSTALL_TEMP = 'C:\\inetpub\\wwwroot\\temp\\install'; `
     # configure SSL flags
     Set-WebConfigurationProperty -PSPath 'machine/webroot/apphost' -Filter 'system.webServer/security/access' -Name 'sslFlags' -Value 'SslNegotiateCert'; `
     # delete temporary files
-    Remove-Item -Path $env:INSTALL_TEMP -Force -Recurse;
+    Remove-Item -Path $env:INSTALL_TEMP -Force -Recurse; `
+    Get-ChildItem -Path 'C:\\inetpub\\wwwroot\\App_Data\\Models';
 
 EXPOSE 443
 
