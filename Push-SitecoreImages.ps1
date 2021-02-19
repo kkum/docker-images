@@ -15,7 +15,12 @@ param (
 Get-Content $TagFile | ForEach-Object {
     $tag = $_ ;
     Write-Host "Processing $tag"
-    $repositoryTag = "$($Repository).azurecr.io/$($tag)" ;
+    if ($Repository -inotcontains "azurecr") {
+        $repositoryTag = "$($Repository).azurecr.io/$($tag)"
+    }
+    else {
+        $repositoryTag = "$($Repository)/$($tag)"
+    }
     Write-Host "Processing $repositoryTag"
 
     $tagId = $(docker images "$tag" --format "{{.ID}}")
